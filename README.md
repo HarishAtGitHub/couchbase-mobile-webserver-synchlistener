@@ -74,4 +74,4 @@ How to start ? :
 
         http://docs.couchbase.com/sync-gateway/#sync-rest-api
         for example http://localhost:4984/beer-sample/_changes?feed=continuous&heartbeat=22924&style=all_docs&since=public:1
-        
+        http://docs.couchbase.com/couchbase-lite/cbl-api/
