@@ -54,3 +54,24 @@ SynchGateway  Options :
      -verbose=false: Log more info about requests
 
 
+How to start ? :
+==============
+
+-> Start Couch Base server
+
+-> Enable beer-sample bucket for just trying out
+
+-> Start Couch Base sych gateway 
+
+        $ /opt/couchbase-sync-gateway/bin/sync_gateway -url="htt//localhost:8091" -bucket="beer-sample"
+        
+        According to docs synch gateway does not allow anonymous access  
+        http://docs.couchbase.com/sync-gateway/#managing-guest-access
+        so enable guest access for the time being using
+        curl -X PUT localhost:4985/beer-sample/_user/GUEST --data    '{"disabled":false, "admin_channels":["public"]}'
+        
+-> Now since the synch gateway is up now , you can query for data using api defined for synch gateway
+
+        http://docs.couchbase.com/sync-gateway/#sync-rest-api
+        for example http://localhost:4984/beer-sample/_changes?feed=continuous&heartbeat=22924&style=all_docs&since=public:1
+        
