@@ -27,6 +27,30 @@ CouchBase Python client :
 Now try the examples
        
        
+CouchBase SynchGateway :
+========================
 
-       
+      1) Download the deb package from http://www.couchbase.com/download#cb-mobile
+      2) sudo dpkg -i <package name>
+      3) To start SychGateway Do
+         $ /opt/couchbase-sync-gateway/bin/sync_gateway
+         Now the synch gateway would have started in port 4985
+      Certain things to note while running this command 
+      
+SynchGateway  Options :
+
+     -adminInterface="127.0.0.1:4985": Address to bind admin interface to
+     -bucket="sync_gateway": Name of bucket
+     -configServer="": URL of server that can return database configs
+     -dbname="": Name of CouchDB database (defaults to name of bucket)
+     -deploymentID="": Customer/project identifier for stats reporting
+     -interface=":4984": Address to bind to
+     -log="": Log keywords, comma separated
+     -personaOrigin="": Base URL that clients use to connect to the server
+     -pool="default": Name of pool
+     -pretty=false: Pretty-print JSON responses
+     -profileInterface="": Address to bind profile interface to
+     -url="walrus:": Address of Couchbase server
+     -verbose=false: Log more info about requests
+
 
