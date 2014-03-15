@@ -74,3 +74,50 @@ NOTE :
 That is not picked up by the synch gateway . You can check by creating one directly in UI . But that will be picked up next time when I restart the synch gateway .
 And you can see additional information seen in the doc in couch base server.
 This is the area where Couch Mobile client comes in .Couch base mobile client writes to synch gateway and synch gateway takes care of synching to couchbase server . Writing to synch gateway manages all the problems . Or to be exact it is writing VIA synch gateway .
+
+### if after starting a synch gateway , I go and edit a document directly in  couchbase serve in UI. Now the doc only has the value that we gave . But now when we restart synch gateway I find that the doc in couchbase server is modified to have so much other meta data . Is this the expected behaviour ?
+
+Yes there are a lot of metadata .
+
+I gave only 
+{
+  "click": "to edit",
+  "new in 2.0": "there are no reserved field names"
+}
+
+But after synch gateway restart I find the doc having the following 
+{
+  "_id": "check2",
+  "_rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
+  "_sync": {
+    "rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
+    "sequence": 5,
+    "history": {
+      "revs": [
+        "1-1d7a1a352c0abb293fdd16883ef6985b"
+      ],
+      "parents": [
+        -1
+      ],
+      "bodies": [
+        ""
+      ],
+      "channels": [
+        [
+          "public"
+        ]
+      ]
+    },
+    "channels": {
+      "public": null
+    },
+    "time_saved": "0001-01-01T00:00:00Z"
+  },
+  "click": "to edit",
+  "new in 2.0": "there are no reserved field names"
+}
+
+
+I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
+https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
+
