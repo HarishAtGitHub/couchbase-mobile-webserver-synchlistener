@@ -124,7 +124,7 @@ But after synch gateway restart I find the doc having the following
   "new in 2.0": "there are no reserved field names"
 }
 
-
+NOTE : ************************** This meta data get added only when I have "import_docs":true in config json *********
 I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
 https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
 
