@@ -72,6 +72,13 @@ NOTE :
 ### What happens if after starting a synch gateway , I go and edit a document directly in  couchbase serve in UI ?
 
 That is not picked up by the synch gateway . You can check by creating one directly in UI . But that will be picked up next time when I restart the synch gateway .
+NOTE : But if I create a doc in the above mentioned way , synch gateway detects it .How do I say this ?
+when I created a doc , I saw the log in synch gateway and it said 
+03:50:05.907508 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
+03:50:26.037878 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
+withoutimportdocstrue is the name of the doc I created . But import failed due to some reason .
+
+
 And you can see additional information seen in the doc in couch base server.
 This is the area where Couch Mobile client comes in .Couch base mobile client writes to synch gateway and synch gateway takes care of synching to couchbase server . Writing to synch gateway manages all the problems . Or to be exact it is writing VIA synch gateway .
 
