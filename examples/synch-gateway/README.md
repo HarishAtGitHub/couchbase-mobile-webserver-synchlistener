@@ -89,44 +89,46 @@ This is the area where Couch Mobile client comes in .Couch base mobile client kn
 Yes there are a lot of metadata .
 
 I gave only 
-{
-  "click": "to edit",
-  "new in 2.0": "there are no reserved field names"
-}
+
+          {
+            "click": "to edit",
+            "new in 2.0": "there are no reserved field names"
+          }
 
 But after synch gateway restart I find the doc having the following 
-{
-  "_id": "check2",
-  "_rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
-  "_sync": {
-    "rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
-    "sequence": 5,
-    "history": {
-      "revs": [
-        "1-1d7a1a352c0abb293fdd16883ef6985b"
-      ],
-      "parents": [
-        -1
-      ],
-      "bodies": [
-        ""
-      ],
-      "channels": [
-        [
-          "public"
-        ]
-      ]
-    },
-    "channels": {
-      "public": null
-    },
-    "time_saved": "0001-01-01T00:00:00Z"
-  },
-  "click": "to edit",
-  "new in 2.0": "there are no reserved field names"
-}
 
-NOTE : ************************** This meta data get added only when I have "import_docs":true in config json *********
+               {
+                 "_id": "check2",
+                 "_rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
+                 "_sync": {
+                   "rev": "1-1d7a1a352c0abb293fdd16883ef6985b",
+                   "sequence": 5,
+                   "history": {
+                     "revs": [
+                       "1-1d7a1a352c0abb293fdd16883ef6985b"
+                     ],
+                     "parents": [
+                       -1
+                     ],
+                     "bodies": [
+                       ""
+                     ],
+                     "channels": [
+                       [
+                         "public"
+                       ]
+                     ]
+                   },
+                   "channels": {
+                     "public": null
+                   },
+                   "time_saved": "0001-01-01T00:00:00Z"
+                 },
+                 "click": "to edit",
+                 "new in 2.0": "there are no reserved field names"
+               }
+
+NOTE : ************************** This meta data get added to new doc only when I have "import_docs":true in config json when restarting synch gateway *********
 
 Whether you give import_docs = true or not , a creation of doc in couchbase server is detected by synch gateway .But it is unable to unmarshal it , so that is not immediately seen in ui when I go to http://localhost:4984/default/_all_docs?include_docs=true .
 
