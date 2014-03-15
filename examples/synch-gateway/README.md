@@ -60,9 +60,16 @@ NOTE :
     
     
     
-Difference between http://localhost:4984/default/_all_docs and http://localhost:4984/default/_all_docs?include_docs=true
-------------------------------------------------------------------------------------------------------------------------
+### Difference between http://localhost:4984/default/_all_docs and http://localhost:4984/default/_all_docs?include_docs=true
+
 
 1) The first url only brings document details with the revision id's 
 
 2) if you want the document's content also , then use second url 
+
+
+
+### What happens if after starting a synch gateway , I go and edit a document directly in  couchbase serve in UI ?
+
+That is not picked up by the synch gateway . You can check by creating one directly in UI . But that will be picked up next time when I restart the synch gateway .
+And you can see additional information seen in the doc in couch base server
