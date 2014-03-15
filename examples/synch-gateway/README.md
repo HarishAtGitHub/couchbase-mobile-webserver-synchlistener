@@ -125,6 +125,9 @@ But after synch gateway restart I find the doc having the following
 }
 
 NOTE : ************************** This meta data get added only when I have "import_docs":true in config json *********
+Whether you give import_docs = true or not a creation of doc in couchbase server is detected by synch gateway .But it is unable to unmarshal it , so that is not immediately seen in ui when I go to http://localhost:4984/default/_all_docs?include_docs=true .
+But when you restart synchgateway next time , only when import_docs is set to true , synch gateway shows the docs . Or else it skips the newly added docs (that were added directly in couchbase server admin UI) .
+
 I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
 https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
 
