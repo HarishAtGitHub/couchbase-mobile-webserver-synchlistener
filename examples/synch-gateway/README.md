@@ -60,8 +60,9 @@ NOTE :
     
     
     
-Difference between http://localhost:4984/default/_all_docs and 
-http://localhost:4984/default/_all_docs?include_docs=true
+Difference between http://localhost:4984/default/_all_docs and http://localhost:4984/default/_all_docs?include_docs=true
+------------------------------------------------------------------------------------------------------------------------
 
 1) The first url only brings document details with the revision id's 
+
 2) if you want the document's content also , then use second url 
