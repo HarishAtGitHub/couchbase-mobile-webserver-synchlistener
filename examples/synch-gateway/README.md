@@ -136,6 +136,8 @@ But when you restart synchgateway next time , only when import_docs is set to tr
 
 Had you set import_docs true , the while restarting the docs would have been pulled for indexing and this is seen by the ,metadata in doc in couchbase server .
 
+          So the doc creation in couchbase server is detected by synch gateway unders all circumstances (import _docs is true or not) . But in order for the newly created docs to be indexed by synchgateway , the import_docs must be true when restarting synch gateway .
+
 I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
 https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
 
