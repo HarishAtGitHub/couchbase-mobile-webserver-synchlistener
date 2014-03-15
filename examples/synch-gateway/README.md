@@ -123,5 +123,5 @@ https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
 
 Now with this concept , synch gateway can maintain the metadata in its shadow bucket and not corrupting the original doc in couchbase server with these meta data .
 
-But I am not sure about conclusion .
+But I am not sure about the above conclusion .
 
