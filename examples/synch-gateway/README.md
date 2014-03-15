@@ -74,15 +74,17 @@ NOTE :
 That is not picked up by the synch gateway . You can check by creating one directly in UI . But that will be picked up next time when I restart the synch gateway .
 NOTE : But if I create a doc in the above mentioned way , synch gateway detects it .How do I say this ?
 when I created a doc , I saw the log in synch gateway and it said 
-03:50:05.907508 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
-03:50:26.037878 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
+
+      03:50:05.907508 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
+      03:50:26.037878 WARNING: changeCache: Error unmarshaling doc "withoutimportdocstrue": <nil> -- db.func·004() at change_cache.go:148
+      
 withoutimportdocstrue is the name of the doc I created . But import failed due to some reason .
 
 
-And you can see additional information seen in the doc in couch base server.
-This is the area where Couch Mobile client comes in .Couch base mobile client writes to synch gateway and synch gateway takes care of synching to couchbase server . Writing to synch gateway manages all the problems . Or to be exact it is writing VIA synch gateway .
+After you restart synch gateway , dateway now would have indexed the newly created doc ,And you can see additional information seen in the doc in couch base server.
+This is the area where Couch Mobile client comes in .Couch base mobile client know to write to couch base server via synch gateway and synch gateway takes care of synching to couchbase server . Writing to synch gateway manages all the problems . Or to be exact it is writing VIA synch gateway .
 
-### if after starting a synch gateway , I go and edit a document directly in  couchbase serve in UI. Now the doc only has the value that we gave . But now when we restart synch gateway I find that the doc in couchbase server is modified to have so much other meta data . Is this the expected behaviour ?
+### if after starting a synch gateway , I go and create a document directly in  couchbase serve in UI. Now the doc only has the value that we gave . But now when we restart synch gateway I find that the doc in couchbase server is modified to have so much other meta data . Is this the expected behaviour ?
 
 Yes there are a lot of metadata .
 
@@ -125,8 +127,11 @@ But after synch gateway restart I find the doc having the following
 }
 
 NOTE : ************************** This meta data get added only when I have "import_docs":true in config json *********
-Whether you give import_docs = true or not a creation of doc in couchbase server is detected by synch gateway .But it is unable to unmarshal it , so that is not immediately seen in ui when I go to http://localhost:4984/default/_all_docs?include_docs=true .
+
+Whether you give import_docs = true or not , a creation of doc in couchbase server is detected by synch gateway .But it is unable to unmarshal it , so that is not immediately seen in ui when I go to http://localhost:4984/default/_all_docs?include_docs=true .
+
 But when you restart synchgateway next time , only when import_docs is set to true , synch gateway shows the docs . Or else it skips the newly added docs (that were added directly in couchbase server admin UI) . If imports_docs is not true when starting , you can find that the new docs will not have meta data in it , meaning that the synch gateway has not pulled it for indexing .
+
 Had you set import_docs true , the while restarting the docs would have been pulled for indexing and this is seen by the ,metadata in doc in couchbase server .
 
 I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
@@ -134,5 +139,5 @@ https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
 
 Now with this concept , synch gateway can maintain the metadata in its shadow bucket and not corrupting the original doc in couchbase server with these meta data .
 
-But I am not sure about the above conclusion .
+But I am not sure about the above conclusion I have made about bucket shadowing.
 
