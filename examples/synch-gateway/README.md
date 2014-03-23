@@ -83,6 +83,8 @@ withoutimportdocstrue is the name of the doc I created . But import failed due t
 
 After you restart synch gateway , dateway now would have indexed the newly created doc ,And you can see additional information seen in the doc in couch base server.
 This is the area where Couch Mobile client comes in .Couch base mobile client know to write to couch base server via synch gateway and synch gateway takes care of synching to couchbase server . Writing to synch gateway manages all the problems . Or to be exact it is writing VIA synch gateway .
+ 
+       SOLUTION : May be this is due to the reason that synchgateway expects meta data in it and its not available . If        you want direct edit in couchbase server to be picked up immediately without failure , use bucket shadowing. I          tried creating new doc in couchbase server and it got synched to mobile .
 
 ### if after starting a synch gateway , I go and create a document directly in  couchbase serve in UI. Now the doc only has the value that we gave . But now when we restart synch gateway I find that the doc in couchbase server is modified to have so much other meta data . Is this the expected behaviour ?
 
@@ -138,10 +140,11 @@ Had you set import_docs true , the while restarting the docs would have been pul
 
           So the doc creation in couchbase server is detected by synch gateway unders all circumstances (import _docs is true or not) . But in order for the newly created docs to be indexed by synchgateway , the import_docs must be true when restarting synch gateway .
 
-I am not sure , may be to relieve of this so called problem , they have the concept of bucket shadowing (introduced jan 2014)
+To relieve this problem of seeing too much meta data in main file and to have metadata in separate file use bucket shadowing
 https://github.com/couchbase/sync_gateway/wiki/Bucket-Shadowing
+https://github.com/couchbase/sync_gateway/issues/294#issuecomment-37764694  (dont mix up shadow and original bucket)
 
 Now with this concept , synch gateway can maintain the metadata in its shadow bucket and not corrupting the original doc in couchbase server with these meta data .
 
-But I am not sure about the above conclusion I have made about bucket shadowing.
+I tried bucket shadwoing and it does what we need .
 
