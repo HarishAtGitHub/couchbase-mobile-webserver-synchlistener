@@ -1,0 +1,21 @@
+input {
+
+  file {
+    type => "synch-listener"
+    path => "/media/harish/storage/code/king/WORK/log/synchlistener.log"
+  }
+
+}
+
+output {
+  # Emit events to stdout for easy debugging of what is going through
+  # logstash.
+  stdout {}
+
+  # This elasticsearch output will try to autodiscover a near-by
+  # elasticsearch cluster using multicast discovery.
+  # If multicast doesn't work, you'll need to set a 'host' setting.
+  elasticsearch {
+      embedded => true
+  }
+}      

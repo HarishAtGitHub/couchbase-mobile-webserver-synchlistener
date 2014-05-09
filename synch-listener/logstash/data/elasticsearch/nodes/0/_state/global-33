@@ -1,0 +1,2 @@
+:)
+úˆmeta-dataú†version$‚ƒuuidUtMJkTKYxQzabas3qbXUbywˆtemplatesú‡logstashú„orderÀ‡templateIlogstash-*‡settingsú¨index.analysis.analyzer.default.stopwordsE_none_•index.refresh_intervalA5s£index.analysis.analyzer.default.typeGstandardû‡mappingsøúˆ_default_úƒ_allú†enabled#ûdynamic_templatesøúŒstring_fieldsú„match@*‘match_mapping_typeEstring†mappingúƒtypeJmulti_field…fieldsú…{name}úTEstring„indexGanalyzed‰omit_norms#û‚rawúTEstringWKnot_analyzed‹ignore_above$€ûûûûûù‰propertiesú‡@versionúTEstringWKnot_analyzedû„geoipúTEobject†dynamic#ƒpathCfull[ú‡locationúTHgeo_pointûûûûûûùûûûû
