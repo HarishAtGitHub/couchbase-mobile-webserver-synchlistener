@@ -30,6 +30,7 @@ Requirements :
       sudo pip install logstash_formatter
 
 3) Install elastic search (we can also use embedded elastic search using logstash flat jar)
+
      wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.0.deb
      sudo dpkg -i <deb package fully>
 
