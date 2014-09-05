@@ -46,13 +46,13 @@ Requirements :
 **using kibana**
 
      java -jar logstash-1.3.3-flatjar.jar agent -f conf/logstashkibana.conf -v -- web
-     access web ui in http://localhost:9292/index.html#/dashboard/file/logstash.json
+     access web ui at http://localhost:9292/index.html#/dashboard/file/logstash.json
      
 **using default web ui**
 
     java -jar logstash-1.1.0-monolithic.jar agent -f conf/logstash.conf -- web
     (Note that the location of log file is correct in conf/logstash.conf )
-    access web ui in http://localhost:9292/
+    access web ui at http://localhost:9292/
 
 
      
